@@ -6,7 +6,7 @@ export default defineGkdApp({
   groups: [
     {
       key: 0,
-      name: '提示信息-关闭推送通知弹窗',
+      name: '弹窗提示-关闭推送通知弹窗',
       desc: '自动点击“暂不”',
       quickFind: true,
       rules:

@@ -6,7 +6,7 @@ export default defineGkdApp({
   groups: [
     {
       key: 0,
-      name: '提示信息-关闭版本更新弹窗',
+      name: '弹窗提示-关闭版本更新弹窗',
       desc: '自动点击“稍后再说”',
       quickFind: true,
       activityIds: 'com.netease.nim.avic.main.activity.MainActivity',
@@ -14,7 +14,7 @@ export default defineGkdApp({
     },
     {
       key: 1,
-      name: '提示信息-关闭消息推送弹窗',
+      name: '弹窗提示-关闭消息推送弹窗',
       desc: '自动点击“取消”',
       quickFind: true,
       activityIds: 'com.netease.nim.avic.main.activity.MainActivity',
@@ -22,7 +22,7 @@ export default defineGkdApp({
     },
     {
       key: 2,
-      name: '提示信息-关闭密码更新提醒',
+      name: '弹窗提示-关闭密码更新提醒',
       desc: '自动点击“稍后处理”',
       quickFind: true,
       activityIds: 'com.netease.nim.avic.main.activity.MainActivity',
