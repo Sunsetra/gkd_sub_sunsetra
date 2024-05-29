@@ -7,7 +7,7 @@ export default defineGkdApp({
     {
       key: 0,
       name: '分段广告-主页',
-      desc: '点击右上角三点，点击我不喜欢',
+      desc: '点击右上角三点，点击[我不喜欢]',
       activityIds: 'com.twitter.app.main.MainActivity',
       actionCd: 3000, // 解决问题https://github.com/gkd-kit/subscription/issues/832
       quickFind: true,
@@ -39,7 +39,7 @@ export default defineGkdApp({
     {
       key: 1,
       name: '分段广告-帖子详情页',
-      desc: '点击右上角三点，点击屏蔽用户，确认屏蔽。点击[我不喜欢]会返回主页，因此点击[屏蔽]',
+      desc: '点击右上角三点，点击[屏蔽用户]，确认[屏蔽]。点击[我不喜欢]会返回主页，因此点击[屏蔽]',
       quickFind: true,
       activityIds: 'com.twitter.tweetdetail.TweetDetailActivity',
       actionCd: 3000,

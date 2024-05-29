@@ -7,7 +7,7 @@ export default defineGkdApp({
     {
       key: 0,
       name: '弹窗提示-关闭版本更新弹窗',
-      desc: '自动点击“稍后再说”',
+      desc: '自动点击[稍后再说]',
       quickFind: true,
       activityIds: 'com.netease.nim.avic.main.activity.MainActivity',
       rules: '@Button[id="com.netease.nim.avic:id/btn_left"][text="稍后再说"]',
@@ -15,7 +15,7 @@ export default defineGkdApp({
     {
       key: 1,
       name: '弹窗提示-关闭消息推送弹窗',
-      desc: '自动点击“取消”',
+      desc: '自动点击[取消]',
       quickFind: true,
       activityIds: 'com.netease.nim.avic.main.activity.MainActivity',
       rules: '@Button[id="com.netease.nim.avic:id/btn_left"][text="取消"]',
@@ -23,7 +23,7 @@ export default defineGkdApp({
     {
       key: 2,
       name: '弹窗提示-关闭密码更新提醒',
-      desc: '自动点击“稍后处理”',
+      desc: '自动点击[稍后处理]',
       quickFind: true,
       activityIds: 'com.netease.nim.avic.main.activity.MainActivity',
       rules:

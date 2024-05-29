@@ -7,6 +7,7 @@ export default defineGkdApp({
     {
       key: 0,
       name: '全屏广告-关闭首页广告',
+      desc: '自动点击[跳过]',
       quickFind: true,
       activityIds: 'com.zhihu.android.app.ui.activity.LauncherActivity',
       rules: '[id="com.zhihu.android:id/btn_skip"]',
@@ -15,6 +16,7 @@ export default defineGkdApp({
     {
       key: 1,
       name: '全屏广告-会员页面-广告弹窗',
+      desc: '点击下方[X]',
       quickFind: true,
       activityIds: 'com.zhihu.android.app.ui.activity.MainActivity',
       rules:
@@ -31,6 +33,7 @@ export default defineGkdApp({
     {
       key: 3,
       name: '分段广告-推荐页-问题广告卡片',
+      desc: '点击角落[X]，再点击[不感兴趣]跳过',
       activityIds: 'com.zhihu.android.app.ui.activity.MainActivity',
       quickFind: true,
       rules: [
@@ -92,6 +95,7 @@ export default defineGkdApp({
     {
       key: 4,
       name: '分段广告-问题回答列表-卡片广告',
+      desc: '普通广告点击角落[X]，再点击[不感兴趣]跳过；特殊卡片则点击三点，再点击[内容反馈]跳过',
       activityIds: [
         'com.zhihu.android.ContentActivity',
         'com.zhihu.android.feature.short_container_feature.ui.ShortContainerHostActivity',
@@ -127,6 +131,15 @@ export default defineGkdApp({
           snapshotUrls: 'https://i.gkd.li/import/15385023',
         },
         {
+          key: 4, // TODO: Beta阶段，观察有无误触情况
+          matches:
+            '@ImageView[clickable=true] <n ViewGroup - TextView <n ViewGroup < FrameLayout',
+          snapshotUrls: [
+            'https://i.gkd.li/import/15484808',
+            'https://i.gkd.li/import/15486346',
+          ],
+        },
+        {
           key: 90,
           name: '点击[内容不感兴趣]',
           preKeys: [0, 1, 2],
@@ -157,6 +170,7 @@ export default defineGkdApp({
     {
       key: 5,
       name: '局部广告-回答底部评论顶部-任意广告推荐',
+      desc: '直接点击[X]跳过',
       quickFind: true,
       activityIds:
         'com.zhihu.android.feature.short_container_feature.ui.ShortContainerHostActivity',
@@ -171,11 +185,21 @@ export default defineGkdApp({
             '@ImageView[clickable=true] + ViewGroup > TextView[text$=`的广告`]',
           snapshotUrls: 'https://i.gkd.li/import/14664654',
         },
+        {
+          key: 2, // TODO: Beta阶段，观察有无误触情况
+          matches:
+            '@ImageView[clickable=true] -n TextView[text=null] <n ViewGroup',
+          snapshotUrls: [
+            'https://i.gkd.li/import/15484608',
+            'https://i.gkd.li/import/15484611',
+          ],
+        },
       ],
     },
     {
       key: 6,
       name: '弹窗提示-关闭推送',
+      desc: '自动点击[X]',
       activityIds: 'com.zhihu.android.app.ui.activity.MainActivity',
       quickFind: true,
       rules:

@@ -7,7 +7,7 @@ export default defineGkdApp({
     {
       key: 0,
       name: '弹窗提示-关闭推送通知弹窗',
-      desc: '自动点击“暂不”',
+      desc: '自动点击[暂不]',
       quickFind: true,
       rules:
         '[text="打开推送通知"] +2 LinearLayout > [id="com.bilibili.app.in:id/close"]',
