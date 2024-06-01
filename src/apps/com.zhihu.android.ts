@@ -9,9 +9,20 @@ export default defineGkdApp({
       name: '全屏广告-关闭首页广告',
       desc: '自动点击[跳过]',
       quickFind: true,
-      activityIds: 'com.zhihu.android.app.ui.activity.LauncherActivity',
-      rules: '[id="com.zhihu.android:id/btn_skip"]',
-      snapshotUrls: 'https://i.gkd.li/import/15445818',
+      rules: [
+        {
+          key: 0,
+          activityIds: 'com.zhihu.android.app.ui.activity.LauncherActivity',
+          matches: '[id="com.zhihu.android:id/btn_skip"]',
+          snapshotUrls: 'https://i.gkd.li/import/15445818',
+        },
+        {
+          key: 1,
+          activityIds: 'com.zhihu.android.app.ui.activity.AdAlphaVideoActivity',
+          matches: '[id="com.zhihu.android:id/tv_ad_close"]',
+          snapshotUrls: 'https://i.gkd.li/import/15520687',
+        },
+      ],
     },
     {
       key: 1,
@@ -25,10 +36,24 @@ export default defineGkdApp({
     },
     {
       key: 2,
+      name: '局部广告-推荐页-顶部及侧边广告',
+      desc: '点击角落位置[X]',
       quickFind: true,
-      name: '局部广告-推荐页-顶部广告',
       activityIds: 'com.zhihu.android.app.ui.activity.MainActivity',
-      rules: '[id="com.zhihu.android:id/img_close_focus"]',
+      rules: [
+        {
+          key: 0,
+          name: '顶部广告',
+          matches: '[id="com.zhihu.android:id/img_close_focus"]',
+        },
+        {
+          key: 1,
+          name: '侧边广告',
+          matches:
+            '@ImageView[clickable=true] + RelativeLayout >2 [id="com.zhihu.android:id/tv_ad_tag"][text="广告"]',
+          snapshotUrls: 'https://i.gkd.li/import/15520691',
+        },
+      ],
     },
     {
       key: 3,
