@@ -83,7 +83,7 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 3, // TODO: Beta阶段，观察有无误触情况
+          key: 3,
           matches:
             '@ViewGroup[clickable=true] - TextView <2 ViewGroup < ViewGroup - ViewGroup > FrameLayout',
           snapshotUrls: [
@@ -110,9 +110,9 @@ export default defineGkdApp({
         {
           key: 92,
           name: '点击[内容不感兴趣]',
-          preKeys: [2],
+          preKeys: [2, 3],
           matches:
-            '@FrameLayout > LinearLayoutCompat[id="com.zhihu.android:id/ll_container"] >2 TextView[text="内容不感兴趣"][id="com.zhihu.android:id/tv_content"]',
+            '@FrameLayout > LinearLayoutCompat[id="com.zhihu.android:id/ll_container"] >2 TextView[id="com.zhihu.android:id/tv_content"][text="内容不感兴趣"]',
           snapshotUrls: 'https://i.gkd.li/import/14731153',
         },
       ],
@@ -158,9 +158,10 @@ export default defineGkdApp({
         {
           key: 4, // TODO: Beta阶段，观察有无误触情况
           matches:
-            '@ImageView[clickable=true] <n ViewGroup - TextView <n ViewGroup < FrameLayout',
+            '@ImageView[clickable=true] <2 ViewGroup -n TextView <n ViewGroup < FrameLayout',
           snapshotUrls: [
             'https://i.gkd.li/import/15484808',
+            'https://i.gkd.li/import/15603459',
             'https://i.gkd.li/import/15486346',
           ],
         },
@@ -211,7 +212,7 @@ export default defineGkdApp({
           snapshotUrls: 'https://i.gkd.li/import/14664654',
         },
         {
-          key: 2, // TODO: Beta阶段，观察有无误触情况
+          key: 2,
           matches:
             '@ImageView[clickable=true] -n TextView[text=null] <n ViewGroup',
           snapshotUrls: [
