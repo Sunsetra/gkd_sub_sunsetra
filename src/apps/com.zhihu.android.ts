@@ -168,8 +168,9 @@ export default defineGkdApp({
         {
           key: 90,
           name: '点击[内容不感兴趣]',
-          preKeys: [0, 1, 2],
-          matches: '@[clickable=true] >(1,3) [text="内容不感兴趣"]',
+          preKeys: [0, 1, 2, 4],
+          matches:
+            '@[clickable=true] >(1,3) [text="内容不感兴趣"||text="内容质量差"]',
           snapshotUrls: [
             'https://i.gkd.li/import/13849689',
             'https://i.gkd.li/import/14652100',
