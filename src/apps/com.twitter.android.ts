@@ -80,7 +80,7 @@ export default defineGkdApp({
           name: '联系人推荐',
           key: 0,
           matches:
-            '@[id="com.twitter.android:id/caret"][clickable=true][desc="忽略"] - LinearLayout > TextView[id="com.twitter.android:id/body"][text="查看你的联系人。"]',
+            '@[id="com.twitter.android:id/caret"][clickable=true][desc="忽略"] - LinearLayout > TextView[id="com.twitter.android:id/body"]',
           snapshotUrls: 'https://i.gkd.li/import/15049983',
         },
         {

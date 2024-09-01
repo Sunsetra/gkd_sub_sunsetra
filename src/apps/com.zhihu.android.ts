@@ -166,18 +166,7 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 90,
-          name: '点击[内容不感兴趣]',
-          preKeys: [0, 1, 2, 4],
-          matches:
-            '@[clickable=true] >(1,3) [text="内容不感兴趣"||text="内容质量差"]',
-          snapshotUrls: [
-            'https://i.gkd.li/import/13849689',
-            'https://i.gkd.li/import/14652100',
-          ],
-        },
-        {
-          key: 91, // 内容反馈按钮可能超出可视区域导致无法点击，需手动拖动
+          key: 90, // 内容反馈按钮可能超出可视区域导致无法点击，需手动拖动
           name: '点击[内容反馈]',
           preKeys: [3],
           matches:
@@ -186,11 +175,14 @@ export default defineGkdApp({
         },
         {
           key: 900,
-          name: '点击[内容质量差]',
-          preKeys: [91],
+          name: '点击[内容不感兴趣]',
+          preKeys: [0, 1, 2, 4, 90],
           matches:
-            '@TextView[id="com.zhihu.android:id/tv_content"&&text="内容质量差"]',
-          snapshotUrls: 'https://i.gkd.li/import/15385065',
+            '@[clickable=true] >(1,3) [text="内容不感兴趣"||text="内容质量差"]',
+          snapshotUrls: [
+            'https://i.gkd.li/import/13849689',
+            'https://i.gkd.li/import/14652100',
+          ],
         },
       ],
     },
