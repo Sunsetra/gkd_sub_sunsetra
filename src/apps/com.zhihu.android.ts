@@ -8,7 +8,7 @@ export default defineGkdApp({
       key: 0,
       name: '全屏广告-关闭首页广告',
       desc: '自动点击[跳过]',
-      quickFind: true,
+      fastQuery: true,
       rules: [
         {
           key: 0,
@@ -28,7 +28,7 @@ export default defineGkdApp({
       key: 1,
       name: '全屏广告-会员页面-广告弹窗',
       desc: '点击下方[X]',
-      quickFind: true,
+      fastQuery: true,
       activityIds: 'com.zhihu.android.app.ui.activity.MainActivity',
       rules:
         '[id="com.zhihu.android:id/image"] < RelativeLayout + [id="com.zhihu.android:id/dismiss"]',
@@ -38,7 +38,7 @@ export default defineGkdApp({
       key: 2,
       name: '局部广告-推荐页-顶部及侧边广告',
       desc: '点击角落位置[X]',
-      quickFind: true,
+      fastQuery: true,
       activityIds: 'com.zhihu.android.app.ui.activity.MainActivity',
       rules: [
         {
@@ -60,7 +60,7 @@ export default defineGkdApp({
       name: '分段广告-推荐页-问题广告卡片',
       desc: '点击角落[X]，再点击[不感兴趣]跳过',
       activityIds: 'com.zhihu.android.app.ui.activity.MainActivity',
-      quickFind: true,
+      fastQuery: true,
       rules: [
         {
           key: 0,
@@ -125,7 +125,7 @@ export default defineGkdApp({
         'com.zhihu.android.ContentActivity',
         'com.zhihu.android.feature.short_container_feature.ui.ShortContainerHostActivity',
       ],
-      quickFind: true,
+      fastQuery: true,
       rules: [
         {
           key: 0,
@@ -190,7 +190,7 @@ export default defineGkdApp({
       key: 5,
       name: '局部广告-回答底部评论顶部-任意广告推荐',
       desc: '直接点击[X]跳过',
-      quickFind: true,
+      fastQuery: true,
       activityIds:
         'com.zhihu.android.feature.short_container_feature.ui.ShortContainerHostActivity',
       rules: [
@@ -220,7 +220,7 @@ export default defineGkdApp({
       name: '弹窗提示-关闭推送',
       desc: '自动点击[X]',
       activityIds: 'com.zhihu.android.app.ui.activity.MainActivity',
-      quickFind: true,
+      fastQuery: true,
       rules:
         '@[id="com.zhihu.android:id/btn_close"] +4 [id="com.zhihu.android:id/btn_open_push"]',
       snapshotUrls: 'https://i.gkd.li/import/14918186',

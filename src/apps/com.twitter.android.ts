@@ -10,7 +10,7 @@ export default defineGkdApp({
       desc: '点击右上角三点，点击[我不喜欢]',
       activityIds: 'com.twitter.app.main.MainActivity',
       actionCd: 3000, // 解决问题https://github.com/gkd-kit/subscription/issues/832
-      quickFind: true,
+      fastQuery: true,
       rules: [
         {
           key: 0,
@@ -40,7 +40,7 @@ export default defineGkdApp({
       key: 1,
       name: '分段广告-帖子详情页',
       desc: '点击右上角三点，点击[屏蔽用户]，确认[屏蔽]。点击[我不喜欢]会返回主页，因此点击[屏蔽]',
-      quickFind: true,
+      fastQuery: true,
       activityIds: 'com.twitter.tweetdetail.TweetDetailActivity',
       actionCd: 3000,
       rules: [
@@ -72,7 +72,7 @@ export default defineGkdApp({
       key: 2,
       name: '占位消息-关闭推荐',
       desc: '点击右上角三点，点击[减少看到的频率]',
-      quickFind: true,
+      fastQuery: true,
       activityIds: 'com.twitter.app.main.MainActivity',
       actionCd: 3000,
       rules: [
@@ -104,7 +104,7 @@ export default defineGkdApp({
       key: 3,
       name: '弹窗提示-关闭通知提示',
       desc: '点击[暂时不用]',
-      quickFind: true,
+      fastQuery: true,
       activityIds: 'com.twitter.app.main.MainActivity',
       actionCd: 3000,
       rules:
