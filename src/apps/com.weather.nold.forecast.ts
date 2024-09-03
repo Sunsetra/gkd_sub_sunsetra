@@ -19,7 +19,7 @@ export default defineGkdApp({
       name: '全屏广告-谷歌广告',
       desc: '点击[关闭]控件（控件不可见时依然有效）',
       activityIds: 'com.google.android.gms.ads.AdActivity',
-      rules: '@FrameLayout[clickable=true]',
+      rules: '@ImageButton[desc="Interstitial close button"]',
       snapshotUrls: 'https://i.gkd.li/import/15148006',
     },
   ],

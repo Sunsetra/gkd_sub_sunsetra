@@ -13,9 +13,15 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          activityIds: 'com.copymanga.app.MainActivity',
+          activityIds: [
+            '.MainActivity',
+            'com.yifan.yf_ads.activity.YFSplashActivity',
+          ],
           matches: '@TextView[text^=`跳过`]',
-          snapshotUrls: 'https://i.gkd.li/import/16848788',
+          snapshotUrls: [
+            'https://i.gkd.li/import/16848788',
+            'https://i.gkd.li/import/16858277',
+          ],
         },
       ],
     },
@@ -28,8 +34,7 @@ export default defineGkdApp({
         {
           key: 0,
           activityIds: '.MainActivity',
-          matches:
-            '@ImageView < FrameLayout[childCount=1] <<n FrameLayout[id="android:id/content"]',
+          matches: '@ImageView < FrameLayout[childCount=1]',
           snapshotUrls: 'https://i.gkd.li/import/16849464',
         },
       ],
@@ -38,13 +43,14 @@ export default defineGkdApp({
       key: 2,
       name: '局部广告-详情页中部广告',
       desc: '点击右下角[X]',
+      matchRoot: true,
       fastQuery: true,
       rules: [
         {
           key: 0,
           activityIds: '.MainActivity',
           matches:
-            '@ImageView < FrameLayout[childCount=1][index=parent.childCount.minus(1)] <<n FrameLayout[id="android:id/content"]',
+            '@ImageView < FrameLayout[childCount=1][index=parent.childCount.minus(1)]',
           snapshotUrls: 'https://i.gkd.li/import/16849588',
         },
       ],
@@ -54,7 +60,6 @@ export default defineGkdApp({
       name: '弹窗提示-关闭系统提示',
       desc: '自动点击[确定]',
       fastQuery: true,
-      actionMaximum: 1,
       activityIds: '.MainActivity',
       rules: '@Button[desc=`确定`]',
       snapshotUrls: [
