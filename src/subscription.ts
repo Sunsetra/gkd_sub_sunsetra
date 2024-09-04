@@ -6,7 +6,7 @@ import globalGroups from './globalGroups';
 export default defineGkdSubscription({
   id: 202405281509,
   name: 'GKDSunsetra',
-  version: 9,
+  version: 10,
   author: 'Sunsetra',
   checkUpdateUrl: './gkd.version.json5',
   supportUri: 'https://github.com/Sunsetra/gkd_sub_sunsetra/issues',

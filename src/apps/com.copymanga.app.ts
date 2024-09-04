@@ -14,10 +14,10 @@ export default defineGkdApp({
         {
           key: 0,
           activityIds: [
-            '.MainActivity',
+            'com.copymanga.app.MainActivity',
             'com.yifan.yf_ads.activity.YFSplashActivity',
           ],
-          matches: '@TextView[text^=`跳过`]',
+          matches: '@TextView[text^="跳过"]',
           snapshotUrls: [
             'https://i.gkd.li/import/16848788',
             'https://i.gkd.li/import/16858277',
@@ -58,13 +58,14 @@ export default defineGkdApp({
     {
       key: 3,
       name: '弹窗提示-关闭系统提示',
-      desc: '自动点击[确定]',
+      desc: '自动点击[确定]或[重新加載]',
       fastQuery: true,
       activityIds: '.MainActivity',
-      rules: '@Button[desc=`确定`]',
+      rules: '@Button[desc="确定"||desc="重新加載"]',
       snapshotUrls: [
         'https://i.gkd.li/import/16848892',
         'https://i.gkd.li/import/16849476',
+        'https://i.gkd.li/import/16870365',
       ],
     },
     {
