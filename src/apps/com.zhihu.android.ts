@@ -4,7 +4,7 @@ export default defineGkdApp({
   id: 'com.zhihu.android',
   name: '知乎',
   groups: [
-    {
+    /*{
       key: 0,
       name: '全屏广告-关闭首页广告',
       desc: '自动点击[跳过]',
@@ -23,7 +23,7 @@ export default defineGkdApp({
           snapshotUrls: 'https://i.gkd.li/import/15520687',
         },
       ],
-    },
+    },*/
     {
       key: 1,
       name: '全屏广告-会员页面-广告弹窗',
@@ -34,7 +34,7 @@ export default defineGkdApp({
         '[id="com.zhihu.android:id/image"] < RelativeLayout + [id="com.zhihu.android:id/dismiss"]',
       snapshotUrls: 'https://i.gkd.li/import/12707676',
     },
-    {
+    /*{
       key: 2,
       name: '局部广告-推荐页-顶部及侧边广告',
       desc: '点击角落位置[X]',
@@ -54,7 +54,7 @@ export default defineGkdApp({
           snapshotUrls: 'https://i.gkd.li/import/15520691',
         },
       ],
-    },
+    },*/
     {
       key: 3,
       name: '分段广告-推荐页-问题广告卡片',
@@ -62,18 +62,18 @@ export default defineGkdApp({
       activityIds: 'com.zhihu.android.app.ui.activity.MainActivity',
       fastQuery: true,
       rules: [
-        {
+        /*{
           key: 0,
           matches: '@ImageView < ViewGroup -3 TextView[text^=`广告`]',
           snapshotUrls: 'https://i.gkd.li/import/14852778',
-        },
+        },*/
         {
           key: 1,
           matches:
             '@ImageView[id=`com.zhihu.android:id/menu`] < FrameLayout - * > TextView[text^=`广告`]',
           snapshotUrls: 'https://i.gkd.li/import/14881985',
         },
-        {
+        /*{
           key: 2,
           matches:
             '@ViewGroup[clickable=true] <<n ViewGroup -n ViewGroup > ViewGroup > TextView[text$="广告"]',
@@ -91,15 +91,16 @@ export default defineGkdApp({
             'https://i.gkd.li/import/15445858', // 无图正常信息卡片
             'https://i.gkd.li/import/15445859', // 带图正常信息卡片
           ],
-        },
+        },*/
         {
           key: 90,
           name: '点击[不感兴趣]',
           preKeys: [0, 1],
           matches:
-            '@LinearLayout[clickable=true] >3 TextView[text="不感兴趣"][id="com.zhihu.android:id/title"]',
+            /*'@LinearLayout[clickable=true] >3 TextView[text$="不感兴趣"][id="com.zhihu.android:id/title"]',*/
+            '@TextView[text$="不感兴趣"]',
         },
-        {
+        /*{
           key: 91,
           name: '点击[屏蔽该内容]',
           preKeys: [1],
@@ -114,7 +115,7 @@ export default defineGkdApp({
           matches:
             '@FrameLayout > LinearLayoutCompat[id="com.zhihu.android:id/ll_container"] >2 TextView[id="com.zhihu.android:id/tv_content"][text="内容不感兴趣"]',
           snapshotUrls: 'https://i.gkd.li/import/14731153',
-        },
+        },*/
       ],
     },
     {
@@ -129,13 +130,17 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: '@ImageView[clickable=true] -n TextView[text$="广告"]',
-          snapshotUrls: [
-            'https://i.gkd.li/import/13849671',
-            'https://i.gkd.li/import/14652037',
-          ],
+          matches:
+            '@ImageView[id="com.zhihu.android:id/remove"] -n TextView[text$="广告"]',
+          snapshotUrls: ['https://i.gkd.li/import/17004267'],
         },
         {
+          key: 90,
+          name: '点击[不感兴趣]',
+          preKeys: [0],
+          matches: '@TextView[text$="不感兴趣"]',
+        },
+        /*{
           key: 1,
           matches:
             '@ImageView[clickable=true] -n ViewGroup > TextView[text$="广告"]',
@@ -183,7 +188,7 @@ export default defineGkdApp({
             'https://i.gkd.li/import/13849689',
             'https://i.gkd.li/import/14652100',
           ],
-        },
+        },*/
       ],
     },
     {
@@ -197,8 +202,9 @@ export default defineGkdApp({
         {
           key: 0,
           matches: '@ImageView -n TextView[text$=`的广告`]',
+          snapshotUrls: 'https://i.gkd.li/import/17004262',
         },
-        {
+        /*{
           key: 1,
           matches:
             '@ImageView[clickable=true] + ViewGroup > TextView[text$=`的广告`]',
@@ -212,7 +218,7 @@ export default defineGkdApp({
             'https://i.gkd.li/import/15484608',
             'https://i.gkd.li/import/15484611',
           ],
-        },
+        },*/
       ],
     },
     {
