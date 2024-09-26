@@ -9,19 +9,21 @@ export default defineGkdApp({
       name: '全屏广告-关闭开屏广告',
       desc: '自动点击[跳过]',
       fastQuery: true,
-      actionMaximum: 1,
+      activityIds: [
+        'com.copymanga.app.MainActivity',
+        'com.yifan.yf_ads.activity.YFSplashActivity',
+      ],
       rules: [
         {
           key: 0,
-          activityIds: [
-            'com.copymanga.app.MainActivity',
-            'com.yifan.yf_ads.activity.YFSplashActivity',
-          ],
+          matches: '@ViewGroup[desc="skip_button"]',
+          snapshotUrls: 'https://i.gkd.li/import/16858277',
+        },
+        {
+          key: 1,
+          forcedTime: 1000,
           matches: '@TextView[text^="跳过"]',
-          snapshotUrls: [
-            'https://i.gkd.li/import/16848788',
-            'https://i.gkd.li/import/16858277',
-          ],
+          snapshotUrls: 'https://i.gkd.li/import/16848788',
         },
       ],
     },
@@ -34,7 +36,7 @@ export default defineGkdApp({
         {
           key: 0,
           activityIds: '.MainActivity',
-          matches: '@ImageView < FrameLayout[childCount=1]',
+          matches: '@ImageView < FrameLayout[childCount=1] + ImageView',
           snapshotUrls: 'https://i.gkd.li/import/16849464',
         },
       ],
@@ -43,12 +45,12 @@ export default defineGkdApp({
       key: 2,
       name: '局部广告-详情页中部广告',
       desc: '点击右下角[X]',
-      matchRoot: true,
       fastQuery: true,
       rules: [
         {
           key: 0,
           activityIds: '.MainActivity',
+          forcedTime: 1000,
           matches:
             '@ImageView < FrameLayout[childCount=1][index=parent.childCount.minus(1)]',
           snapshotUrls: 'https://i.gkd.li/import/16849588',

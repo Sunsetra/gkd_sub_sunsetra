@@ -73,7 +73,7 @@ export default defineGkdApp({
             '@ImageView[id=`com.zhihu.android:id/menu`] < FrameLayout - * > TextView[text^=`广告`]',
           snapshotUrls: 'https://i.gkd.li/import/14881985',
         },
-        /*{
+        {
           key: 2,
           matches:
             '@ViewGroup[clickable=true] <<n ViewGroup -n ViewGroup > ViewGroup > TextView[text$="广告"]',
@@ -82,7 +82,7 @@ export default defineGkdApp({
             'https://i.gkd.li/import/15384942', // 二类广告
           ],
         },
-        {
+        /*{
           key: 3,
           matches:
             '@ViewGroup[clickable=true] - TextView <2 ViewGroup < ViewGroup - ViewGroup > FrameLayout',
@@ -95,7 +95,7 @@ export default defineGkdApp({
         {
           key: 90,
           name: '点击[不感兴趣]',
-          preKeys: [0, 1],
+          preKeys: [0, 1, 2],
           matches:
             /*'@LinearLayout[clickable=true] >3 TextView[text$="不感兴趣"][id="com.zhihu.android:id/title"]',*/
             '@TextView[text$="不感兴趣"]',
@@ -225,7 +225,7 @@ export default defineGkdApp({
       key: 6,
       name: '弹窗提示-关闭推送',
       desc: '自动点击[X]',
-      activityIds: 'com.zhihu.android.app.ui.activity.MainActivity',
+      activityIds: ['.MainActivity', '.HostActivity'],
       fastQuery: true,
       rules:
         '@[id="com.zhihu.android:id/btn_close"] +4 [id="com.zhihu.android:id/btn_open_push"]',
