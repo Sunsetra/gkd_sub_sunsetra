@@ -82,20 +82,20 @@ export default defineGkdApp({
             'https://i.gkd.li/import/15384942', // 二类广告
           ],
         },
-        /*{
+        {
           key: 3,
           matches:
-            '@ViewGroup[clickable=true] - TextView <2 ViewGroup < ViewGroup - ViewGroup > FrameLayout',
+            '@ViewGroup[clickable=true] <<n ViewGroup - ViewGroup >3 ViewGroup[id="com.zhihu.android:id/watermark_root"]',
           snapshotUrls: [
             'https://i.gkd.li/import/15445780', // 无任何广告提示的卡片广告
             'https://i.gkd.li/import/15445858', // 无图正常信息卡片
             'https://i.gkd.li/import/15445859', // 带图正常信息卡片
           ],
-        },*/
+        },
         {
           key: 90,
           name: '点击[不感兴趣]',
-          preKeys: [0, 1, 2],
+          preKeys: [0, 1, 2, 3],
           matches:
             /*'@LinearLayout[clickable=true] >3 TextView[text$="不感兴趣"][id="com.zhihu.android:id/title"]',*/
             '@TextView[text$="不感兴趣"]',
@@ -204,13 +204,12 @@ export default defineGkdApp({
           matches: '@ImageView -n TextView[text$=`的广告`]',
           snapshotUrls: 'https://i.gkd.li/import/17004262',
         },
-        /*{
+        {
           key: 1,
-          matches:
-            '@ImageView[clickable=true] + ViewGroup > TextView[text$=`的广告`]',
+          matches: '@ImageView + ViewGroup > TextView[text$=`的广告`]',
           snapshotUrls: 'https://i.gkd.li/import/14664654',
         },
-        {
+        /*{
           key: 2,
           matches:
             '@ImageView[clickable=true] -n TextView[text=null] <n ViewGroup',
