@@ -63,6 +63,7 @@ export default defineGkdApp({
         'com.zhihu.android.feature.short_container_feature.ui.ShortContainerHostActivity',
       ],
       fastQuery: true,
+      actionCd: 1000, // 增加冷却，否则易点击多次
       rules: [
         {
           key: 0,
@@ -84,7 +85,6 @@ export default defineGkdApp({
         {
           key: 3,
           name: '来自其他文章或回答中的卡片',
-          actionCd: 1000, // 增加冷却，否则易点击多次
           matches:
             '@FrameLayout[index=parent.childCount.minus(1)] <n LinearLayout[id="com.zhihu.android:id/rightLayout_inner"] <<n ViewGroup - TextView[text^="来自"]',
           snapshotUrls: 'https://i.gkd.li/import/15385023',
@@ -101,9 +101,9 @@ export default defineGkdApp({
         },*/
         {
           key: 90,
-          name: '点击[不感兴趣]',
+          name: '点击[不感兴趣]或[屏蔽]',
           preKeys: [0, 1, 2],
-          matches: '@TextView[text$="不感兴趣"]',
+          matches: '@TextView[text$="不感兴趣"||text="屏蔽该内容"]',
         },
         {
           key: 91, // 内容反馈按钮可能超出可视区域导致无法点击，需手动拖动
