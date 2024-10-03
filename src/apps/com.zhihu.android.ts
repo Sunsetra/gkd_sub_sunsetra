@@ -4,26 +4,6 @@ export default defineGkdApp({
   id: 'com.zhihu.android',
   name: '知乎',
   groups: [
-    /*{
-      key: 0,
-      name: '全屏广告-关闭首页广告',
-      desc: '自动点击[跳过]',
-      fastQuery: true,
-      rules: [
-        {
-          key: 0,
-          activityIds: 'com.zhihu.android.app.ui.activity.LauncherActivity',
-          matches: '[id="com.zhihu.android:id/btn_skip"]',
-          snapshotUrls: 'https://i.gkd.li/import/15445818',
-        },
-        {
-          key: 1,
-          activityIds: 'com.zhihu.android.app.ui.activity.AdAlphaVideoActivity',
-          matches: '[id="com.zhihu.android:id/tv_ad_close"]',
-          snapshotUrls: 'https://i.gkd.li/import/15520687',
-        },
-      ],
-    },*/
     {
       key: 1,
       name: '全屏广告-会员页面-广告弹窗',
@@ -34,27 +14,6 @@ export default defineGkdApp({
         '[id="com.zhihu.android:id/image"] < RelativeLayout + [id="com.zhihu.android:id/dismiss"]',
       snapshotUrls: 'https://i.gkd.li/import/12707676',
     },
-    /*{
-      key: 2,
-      name: '局部广告-推荐页-顶部及侧边广告',
-      desc: '点击角落位置[X]',
-      fastQuery: true,
-      activityIds: 'com.zhihu.android.app.ui.activity.MainActivity',
-      rules: [
-        {
-          key: 0,
-          name: '顶部广告',
-          matches: '[id="com.zhihu.android:id/img_close_focus"]',
-        },
-        {
-          key: 1,
-          name: '侧边广告',
-          matches:
-            '@ImageView[clickable=true] + RelativeLayout >2 [id="com.zhihu.android:id/tv_ad_tag"][text="广告"]',
-          snapshotUrls: 'https://i.gkd.li/import/15520691',
-        },
-      ],
-    },*/
     {
       key: 3,
       name: '分段广告-推荐页-问题广告卡片',
@@ -62,11 +21,6 @@ export default defineGkdApp({
       activityIds: 'com.zhihu.android.app.ui.activity.MainActivity',
       fastQuery: true,
       rules: [
-        /*{
-          key: 0,
-          matches: '@ImageView < ViewGroup -3 TextView[text^=`广告`]',
-          snapshotUrls: 'https://i.gkd.li/import/14852778',
-        },*/
         {
           key: 1,
           matches:
@@ -96,26 +50,8 @@ export default defineGkdApp({
           key: 90,
           name: '点击[不感兴趣]',
           preKeys: [0, 1, 2, 3],
-          matches:
-            /*'@LinearLayout[clickable=true] >3 TextView[text$="不感兴趣"][id="com.zhihu.android:id/title"]',*/
-            '@TextView[text$="不感兴趣"]',
+          matches: '@TextView[text$="不感兴趣"]',
         },
-        /*{
-          key: 91,
-          name: '点击[屏蔽该内容]',
-          preKeys: [1],
-          matches:
-            '@FrameLayout[clickable=true] >3 TextView[text="屏蔽该内容"][id="com.zhihu.android:id/tv_content"]',
-          snapshotUrls: 'https://i.gkd.li/import/14758259',
-        },
-        {
-          key: 92,
-          name: '点击[内容不感兴趣]',
-          preKeys: [2, 3],
-          matches:
-            '@FrameLayout > LinearLayoutCompat[id="com.zhihu.android:id/ll_container"] >2 TextView[id="com.zhihu.android:id/tv_content"][text="内容不感兴趣"]',
-          snapshotUrls: 'https://i.gkd.li/import/14731153',
-        },*/
       ],
     },
     {
@@ -132,18 +68,11 @@ export default defineGkdApp({
           key: 0,
           matches:
             '@ImageView[id="com.zhihu.android:id/remove"] -n TextView[text$="广告"]',
-          snapshotUrls: ['https://i.gkd.li/import/17004267'],
+          snapshotUrls: 'https://i.gkd.li/import/17004267',
         },
         {
-          key: 90,
-          name: '点击[不感兴趣]',
-          preKeys: [0],
-          matches: '@TextView[text$="不感兴趣"]',
-        },
-        /*{
           key: 1,
-          matches:
-            '@ImageView[clickable=true] -n ViewGroup > TextView[text$="广告"]',
+          matches: '@ImageView[clickable=true] -n TextView[text$="广告"]',
           snapshotUrls: 'https://i.gkd.li/import/14664795',
         },
         {
@@ -155,12 +84,12 @@ export default defineGkdApp({
         {
           key: 3,
           name: '来自其他文章或回答中的卡片',
-          actionCd: 3000, // 增加冷却，否则易点击多次
+          actionCd: 1000, // 增加冷却，否则易点击多次
           matches:
-            '@FrameLayout[clickable=true] <4 LinearLayout[id="com.zhihu.android:id/rightLayout_inner"] <<n ViewGroup - TextView[text^="来自"]',
+            '@FrameLayout[index=parent.childCount.minus(1)] <n LinearLayout[id="com.zhihu.android:id/rightLayout_inner"] <<n ViewGroup - TextView[text^="来自"]',
           snapshotUrls: 'https://i.gkd.li/import/15385023',
         },
-        {
+        /*{
           key: 4, // TODO: Beta阶段，观察有无误触情况
           matches:
             '@ImageView[clickable=true] <2 ViewGroup -n TextView <n ViewGroup < FrameLayout',
@@ -169,26 +98,31 @@ export default defineGkdApp({
             'https://i.gkd.li/import/15603459',
             'https://i.gkd.li/import/15486346',
           ],
+        },*/
+        {
+          key: 90,
+          name: '点击[不感兴趣]',
+          preKeys: [0, 1, 2],
+          matches: '@TextView[text$="不感兴趣"]',
         },
         {
-          key: 90, // 内容反馈按钮可能超出可视区域导致无法点击，需手动拖动
+          key: 91, // 内容反馈按钮可能超出可视区域导致无法点击，需手动拖动
           name: '点击[内容反馈]',
           preKeys: [3],
           matches:
-            '@ViewGroup[clickable=true] > TextView[id="com.zhihu.android:id/title"&&text="内容反馈"]',
+            '@TextView[id="com.zhihu.android:id/title"&&text="内容反馈"]',
           snapshotUrls: 'https://i.gkd.li/import/15385053',
         },
         {
-          key: 900,
-          name: '点击[内容不感兴趣]',
-          preKeys: [0, 1, 2, 4, 90],
-          matches:
-            '@[clickable=true] >(1,3) [text="内容不感兴趣"||text="内容质量差"]',
+          key: 92,
+          name: '点击按钮删除内容',
+          preKeys: [91],
+          matches: '@TextView[text$="不感兴趣"||text="内容质量差"]',
           snapshotUrls: [
             'https://i.gkd.li/import/13849689',
             'https://i.gkd.li/import/14652100',
           ],
-        },*/
+        },
       ],
     },
     {
@@ -209,15 +143,15 @@ export default defineGkdApp({
           matches: '@ImageView + ViewGroup > TextView[text$=`的广告`]',
           snapshotUrls: 'https://i.gkd.li/import/14664654',
         },
-        /*{
+        {
           key: 2,
           matches:
-            '@ImageView[clickable=true] -n TextView[text=null] <n ViewGroup',
+            '@ImageView[index=parent.childCount.minus(1)] <n ViewGroup - TextView[text=null]',
           snapshotUrls: [
             'https://i.gkd.li/import/15484608',
             'https://i.gkd.li/import/15484611',
           ],
-        },*/
+        },
       ],
     },
     {
