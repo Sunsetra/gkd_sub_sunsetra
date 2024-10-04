@@ -37,6 +37,7 @@ export default defineGkdApp({
             '@TextView[index=parent.childCount.minus(1)] <n WebView[text="NGA帖子页"]',
         },
       ],
+      snapshotUrls: 'https://i.gkd.li/import/17252248',
     },
     {
       key: 3,
@@ -46,6 +47,7 @@ export default defineGkdApp({
       activityIds: '.activity.forumdetail.ArticleDetailActivity',
       rules:
         '@ImageView[parent.childCount=1] <<n FrameLayout[id="gov.pianzong.androidnga:id/ksad_container"]',
+      snapshotUrls: 'https://i.gkd.li/import/17252240',
     },
   ],
 });

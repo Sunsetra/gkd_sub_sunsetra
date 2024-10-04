@@ -67,23 +67,17 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches:
-            '@ImageView[id="com.zhihu.android:id/remove"] -n TextView[text$="广告"]',
-          snapshotUrls: 'https://i.gkd.li/import/17004267',
-        },
-        {
-          key: 1,
           matches: '@ImageView[clickable=true] -n TextView[text$="广告"]',
           snapshotUrls: 'https://i.gkd.li/import/14664795',
         },
         {
-          key: 2,
+          key: 1,
           matches:
             '@ImageView[clickable=true] <n ViewGroup -n ViewGroup > TextView[text$="广告"]',
           snapshotUrls: 'https://i.gkd.li/import/15384691',
         },
         {
-          key: 3,
+          key: 2,
           name: '来自其他文章或回答中的卡片',
           matches:
             '@FrameLayout[index=parent.childCount.minus(1)] <n LinearLayout[id="com.zhihu.android:id/rightLayout_inner"] <<n ViewGroup - TextView[text^="来自"]',
@@ -102,13 +96,13 @@ export default defineGkdApp({
         {
           key: 90,
           name: '点击[不感兴趣]或[屏蔽]',
-          preKeys: [0, 1, 2],
+          preKeys: [0, 1],
           matches: '@TextView[text$="不感兴趣"||text="屏蔽该内容"]',
         },
         {
-          key: 91, // 内容反馈按钮可能超出可视区域导致无法点击，需手动拖动
+          key: 91,
           name: '点击[内容反馈]',
-          preKeys: [3],
+          preKeys: [2],
           matches:
             '@TextView[id="com.zhihu.android:id/title"&&text="内容反馈"]',
           snapshotUrls: 'https://i.gkd.li/import/15385053',
