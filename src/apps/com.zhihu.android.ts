@@ -63,7 +63,7 @@ export default defineGkdApp({
         'com.zhihu.android.feature.short_container_feature.ui.ShortContainerHostActivity',
       ],
       fastQuery: true,
-      actionCd: 1000, // 增加冷却，否则易点击多次
+      actionCd: 2000, // 增加冷却，否则易点击多次
       rules: [
         {
           key: 0,
@@ -140,7 +140,7 @@ export default defineGkdApp({
         {
           key: 2,
           matches:
-            '@ImageView[index=parent.childCount.minus(1)] <n ViewGroup - TextView[text=null]',
+            '@ImageView[index=parent.childCount.minus(1)] -n TextView[text=null] <3 ViewGroup',
           snapshotUrls: [
             'https://i.gkd.li/import/15484608',
             'https://i.gkd.li/import/15484611',
