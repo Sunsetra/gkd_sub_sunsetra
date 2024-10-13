@@ -12,7 +12,29 @@ export default defineGkdApp({
       activityIds: 'com.zhihu.android.app.ui.activity.MainActivity',
       rules:
         '[id="com.zhihu.android:id/image"] < RelativeLayout + [id="com.zhihu.android:id/dismiss"]',
-      snapshotUrls: 'https://i.gkd.li/import/12707676',
+      snapshotUrls: 'https://i.gkd.li/import/17352576',
+    },
+    {
+      key: 2,
+      name: '局部广告-推荐页-顶部广告',
+      desc: '点击角落位置[X]',
+      fastQuery: true,
+      activityIds: 'com.zhihu.android.app.ui.activity.MainActivity',
+      rules: [
+        {
+          key: 0,
+          name: '顶部广告',
+          matches: '[id="com.zhihu.android:id/img_close_focus"]',
+          snapshotUrls: 'https://i.gkd.li/import/12707676',
+        },
+        /*{
+          key: 1,
+          name: '侧边广告',
+          matches:
+            '@ImageView[clickable=true] + RelativeLayout >2 [id="com.zhihu.android:id/tv_ad_tag"][text="广告"]',
+          snapshotUrls: 'https://i.gkd.li/import/15520691',
+        },*/
+      ],
     },
     {
       key: 3,
@@ -32,8 +54,8 @@ export default defineGkdApp({
           matches:
             '@ViewGroup[clickable=true] <<n ViewGroup -n ViewGroup > ViewGroup > TextView[text$="广告"]',
           snapshotUrls: [
-            'https://i.gkd.li/import/14731141', // 一类广告
-            'https://i.gkd.li/import/15384942', // 二类广告
+            'https://i.gkd.li/import/14731141',
+            'https://i.gkd.li/import/15384942',
           ],
         },
         {
@@ -83,20 +105,20 @@ export default defineGkdApp({
             '@FrameLayout[index=parent.childCount.minus(1)] <n LinearLayout[id="com.zhihu.android:id/rightLayout_inner"] <<n ViewGroup - TextView[text^="来自"]',
           snapshotUrls: 'https://i.gkd.li/import/15385023',
         },
-        /*{
-          key: 4, // TODO: Beta阶段，观察有无误触情况
+        {
+          key: 3,
           matches:
-            '@ImageView[clickable=true] <2 ViewGroup -n TextView <n ViewGroup < FrameLayout',
+            '@ImageView[index=parent.childCount.minus(1)] <2 ViewGroup <<n FrameLayout <n RecyclerView[id="com.zhihu.android:id/recycler"]',
           snapshotUrls: [
             'https://i.gkd.li/import/15484808',
             'https://i.gkd.li/import/15603459',
             'https://i.gkd.li/import/15486346',
           ],
-        },*/
+        },
         {
           key: 90,
           name: '点击[不感兴趣]或[屏蔽]',
-          preKeys: [0, 1],
+          preKeys: [0, 1, 3],
           matches: '@TextView[text$="不感兴趣"||text="屏蔽该内容"]',
         },
         {
@@ -108,7 +130,7 @@ export default defineGkdApp({
           snapshotUrls: 'https://i.gkd.li/import/15385053',
         },
         {
-          key: 92,
+          key: 92, // TODO: 90,92是否可合并？
           name: '点击按钮删除内容',
           preKeys: [91],
           matches: '@TextView[text$="不感兴趣"||text="内容质量差"]',

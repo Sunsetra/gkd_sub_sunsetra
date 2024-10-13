@@ -9,7 +9,7 @@ export default defineGkdApp({
       name: '全屏广告-开屏广告',
       desc: '自动点击[跳过广告]',
       fastQuery: true,
-      activityIds: '.activity.LoadingActivity',
+      activityIds: ['.activity.LoadingActivity', '.activity.WarmstartActivity'],
       rules: '@ImageView[id="gov.pianzong.androidnga:id/iv_tg_ad"]',
     },
     {
