@@ -45,12 +45,29 @@ export default defineGkdApp({
       desc: '自动点击[X]',
       fastQuery: true,
       activityIds: '.activity.forumdetail.ForumDetailActivity',
-      rules:
-        '@ImageView[parent.childCount=1] < [index=parent.childCount.minus(1)] <<n FrameLayout <n RecyclerView[vid="rv_post_list"]',
+      rules: {
+        anyMatches: [
+          '@ImageView[parent.childCount=1] < [index=parent.childCount.minus(1)] <<n FrameLayout <n RecyclerView[vid="rv_post_list"]',
+          '@Image[parent.childCount=1] < View <<n FrameLayout <n RecyclerView[vid="rv_post_list"]',
+          '@View[parent.childCount=1] < FrameLayout <<n FrameLayout <n RecyclerView[vid="rv_post_list"]',
+        ],
+      },
       snapshotUrls: [
         'https://i.gkd.li/import/17252240',
         'https://i.gkd.li/import/17292987',
+        'https://i.gkd.li/import/17378401',
+        'https://i.gkd.li/import/17378409',
       ],
+    },
+    {
+      key: 4,
+      name: '弹窗提示-消息通知提醒',
+      desc: '自动点击[X]',
+      fastQuery: true,
+      activityIds: 'com.donews.nga.activitys.MainActivity',
+      rules:
+        '@ImageView[id="gov.pianzong.androidnga:id/iv_close_notification_guide"]',
+      snapshotUrls: 'https://i.gkd.li/import/17378194',
     },
   ],
 });

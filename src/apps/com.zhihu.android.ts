@@ -27,13 +27,13 @@ export default defineGkdApp({
           matches: '[id="com.zhihu.android:id/img_close_focus"]',
           snapshotUrls: 'https://i.gkd.li/import/12707676',
         },
-        /*{
+        {
           key: 1,
           name: '侧边广告',
           matches:
             '@ImageView[clickable=true] + RelativeLayout >2 [id="com.zhihu.android:id/tv_ad_tag"][text="广告"]',
           snapshotUrls: 'https://i.gkd.li/import/15520691',
-        },*/
+        },
       ],
     },
     {
@@ -61,11 +61,11 @@ export default defineGkdApp({
         {
           key: 3,
           matches:
-            '@ViewGroup[clickable=true] <<n ViewGroup - ViewGroup >3 ViewGroup[id="com.zhihu.android:id/watermark_root"]',
+            '@ImageView < ViewGroup[index=parent.childCount.minus(1)] <<n FrameLayout <n RecyclerView[id="com.zhihu.android:id/recycler"]',
           snapshotUrls: [
             'https://i.gkd.li/import/15445780', // 无任何广告提示的卡片广告
-            'https://i.gkd.li/import/15445858', // 无图正常信息卡片
-            'https://i.gkd.li/import/15445859', // 带图正常信息卡片
+            'https://i.gkd.li/import/15445858', // 无图广告卡片
+            'https://i.gkd.li/import/15445859', // 带图广告卡片
           ],
         },
         {
@@ -85,7 +85,6 @@ export default defineGkdApp({
         'com.zhihu.android.feature.short_container_feature.ui.ShortContainerHostActivity',
       ],
       fastQuery: true,
-      actionCd: 2000, // 增加冷却，否则易点击多次
       rules: [
         {
           key: 0,
@@ -101,6 +100,7 @@ export default defineGkdApp({
         {
           key: 2,
           name: '来自其他文章或回答中的卡片',
+          actionCd: 2000, // 增加冷却，否则易点击多次
           matches:
             '@FrameLayout[index=parent.childCount.minus(1)] <n LinearLayout[id="com.zhihu.android:id/rightLayout_inner"] <<n ViewGroup - TextView[text^="来自"]',
           snapshotUrls: 'https://i.gkd.li/import/15385023',
