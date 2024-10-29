@@ -5,6 +5,16 @@ export default defineGkdApp({
   name: '知乎',
   groups: [
     {
+      key: 0,
+      name: '全屏广告-开屏广告',
+      desc: '点击右上[关闭]',
+      fastQuery: true,
+      matchTime: 5000,
+      activityIds: '.app.ui.activity.AdAlphaVideoActivity',
+      rules: '[id="com.zhihu.android:id/tv_ad_close"&&text$="关闭"]',
+      snapshotUrls: 'https://i.gkd.li/import/17556066',
+    },
+    {
       key: 1,
       name: '全屏广告-会员页面-广告弹窗',
       desc: '点击下方[X]',
@@ -61,7 +71,7 @@ export default defineGkdApp({
         {
           key: 3,
           matches:
-            '@ImageView < ViewGroup[index=parent.childCount.minus(1)] <<n FrameLayout <n RecyclerView[id="com.zhihu.android:id/recycler"]',
+            '@ImageView[parent.childCount=1] < ViewGroup[index=parent.childCount.minus(1)] <n ViewGroup <<n ViewGroup < FrameLayout <n RecyclerView[id="com.zhihu.android:id/recycler"]',
           snapshotUrls: [
             'https://i.gkd.li/import/15445780', // 无任何广告提示的卡片广告
             'https://i.gkd.li/import/15445858', // 无图广告卡片
@@ -116,6 +126,11 @@ export default defineGkdApp({
           ],
         },
         {
+          key: 4,
+          matches: '@ImageView -2 ViewGroup > TextView[text$=`的广告`]',
+          snapshotUrls: 'https://i.gkd.li/import/17555999',
+        },
+        {
           key: 90,
           name: '点击[不感兴趣]或[屏蔽]',
           preKeys: [0, 1, 3],
@@ -156,7 +171,8 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          matches: '@ImageView + ViewGroup > TextView[text$=`的广告`]',
+          matches:
+            '@ImageView + ViewGroup[index=parent.childCount.minus(1)] > TextView[text$=`的广告`]',
           snapshotUrls: 'https://i.gkd.li/import/14664654',
         },
         {
