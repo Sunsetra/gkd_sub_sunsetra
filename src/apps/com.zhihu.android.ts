@@ -133,7 +133,7 @@ export default defineGkdApp({
         {
           key: 90,
           name: '点击[不感兴趣]或[屏蔽]',
-          preKeys: [0, 1, 3],
+          preKeys: [0, 1, 3, 4],
           matches: '@TextView[text$="不感兴趣"||text="屏蔽该内容"]',
         },
         {
@@ -193,7 +193,7 @@ export default defineGkdApp({
       activityIds: ['.MainActivity', '.HostActivity'],
       fastQuery: true,
       rules:
-        '@[id="com.zhihu.android:id/btn_close"] +4 [id="com.zhihu.android:id/btn_open_push"]',
+        '@[id="com.zhihu.android:id/btn_close"] +n [id="com.zhihu.android:id/btn_open_push"]',
       snapshotUrls: 'https://i.gkd.li/import/14918186',
     },
   ],
