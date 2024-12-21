@@ -34,14 +34,12 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          name: '点击[X]',
           matches:
             '@ViewGroup[clickable=true] <n ViewGroup < ViewGroup[index=parent.childCount.minus(1)] -n ViewGroup >n ViewGroup >n TextView[text$=`的广告`]',
           snapshotUrls: 'https://i.gkd.li/i/18216441',
         },
         {
           key: 90,
-          name: '点击[不感兴趣]',
           preKeys: [0],
           matches: '@TextView[text$=`内容不感兴趣`]',
           snapshotUrls: 'https://i.gkd.li/i/18216448',
@@ -58,20 +56,17 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          name: '点击[X]',
           matches:
             '@ViewGroup[clickable=true] -n ViewGroup >n TextView[text$=`的广告`]',
           snapshotUrls: 'https://i.gkd.li/i/18216485',
         },
         {
           key: 1,
-          name: '点击[X]',
           matches: '@[id="com.zhihu.android:id/remove"]',
           snapshotUrls: 'https://i.gkd.li/i/18216895',
         },
         {
           key: 90,
-          name: '点击[不感兴趣]',
           preKeys: [0, 1],
           matches: '@TextView[text$=`内容不感兴趣`]',
           snapshotUrls: 'https://i.gkd.li/i/18216487',
