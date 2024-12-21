@@ -19,5 +19,61 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 1,
+      name: '分段广告-推荐页-问题广告卡片',
+      desc: '点击角落[X]，再点击[不感兴趣]跳过',
+      activityIds: '.app.ui.activity.MainActivity',
+      fastQuery: true,
+      rules: [
+        {
+          key: 0,
+          name: '点击[X]',
+          matches:
+            '@ViewGroup[clickable=true] <n ViewGroup < ViewGroup[index=parent.childCount.minus(1)] -n ViewGroup >n ViewGroup >n TextView[text$=`的广告`]',
+          snapshotUrls: 'https://i.gkd.li/i/18216441',
+        },
+        {
+          key: 90,
+          name: '点击[不感兴趣]',
+          preKeys: [0],
+          matches: '@TextView[text$=`内容不感兴趣`]',
+          snapshotUrls: 'https://i.gkd.li/i/18216448',
+        },
+      ],
+    },
+    {
+      key: 2,
+      name: '分段广告-问题回答列表-卡片广告',
+      desc: '普通广告点击角落[X]，再点击[不感兴趣]跳过；特殊卡片则点击三点，再点击[内容反馈]跳过',
+      activityIds:
+        '.feature.short_container_feature.ui.ShortContainerHostActivity',
+      fastQuery: true,
+      rules: [
+        {
+          key: 0,
+          name: '点击[X]',
+          matches:
+            '@ViewGroup[clickable=true] -n ViewGroup >n TextView[text$=`的广告`]',
+          snapshotUrls: 'https://i.gkd.li/i/18216485',
+        },
+        {
+          key: 90,
+          name: '点击[不感兴趣]',
+          preKeys: [0],
+          matches: '@TextView[text$=`内容不感兴趣`]',
+          snapshotUrls: 'https://i.gkd.li/i/18216487',
+        },
+      ],
+    },
+    {
+      key: 3,
+      name: '弹窗提示-关闭通知推送',
+      desc: '自动点击[X]',
+      activityIds: '.MainActivity',
+      fastQuery: true,
+      rules: '[id="com.zhihu.android:id/btn_close"]',
+      snapshotUrls: 'https://i.gkd.li/i/18216506',
+    },
   ],
 });
