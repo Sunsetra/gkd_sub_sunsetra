@@ -39,8 +39,14 @@ export default defineGkdApp({
           snapshotUrls: 'https://i.gkd.li/i/18216441',
         },
         {
+          key: 1,
+          matches:
+            '@ImageView[id="com.zhihu.android:id/menu"] < FrameLayout - LinearLayoutCompat > TextView[text^=`广告`]',
+          snapshotUrls: 'https://i.gkd.li/i/18239843',
+        },
+        {
           key: 90,
-          preKeys: [0],
+          preKeys: [0, 1],
           matches: '@TextView[text$=`内容不感兴趣`]',
           snapshotUrls: 'https://i.gkd.li/i/18216448',
         },
