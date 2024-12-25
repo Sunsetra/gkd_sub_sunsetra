@@ -40,7 +40,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 1,
+      key: 2,
       name: '分段广告-推荐页-问题广告卡片',
       desc: '点击角落[X]，再点击[不感兴趣]跳过',
       activityIds: '.app.ui.activity.MainActivity',
@@ -67,7 +67,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 2,
+      key: 3,
       name: '分段广告-问题回答列表-卡片广告',
       desc: '普通广告点击角落[X]，再点击[不感兴趣]跳过；特殊卡片则点击三点，再点击[内容反馈]跳过',
       activityIds:
@@ -116,7 +116,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 3,
+      key: 4,
       name: '弹窗提示-关闭通知推送',
       desc: '自动点击[X]',
       activityIds: '.MainActivity',
