@@ -72,10 +72,27 @@ export default defineGkdApp({
           snapshotUrls: 'https://i.gkd.li/i/18216895',
         },
         {
-          key: 90,
-          preKeys: [0, 1],
-          matches: '@TextView[text$=`内容不感兴趣`]',
-          snapshotUrls: 'https://i.gkd.li/i/18216487',
+          key: 2,
+          //actionCd: 2000, // 增加冷却，否则易点击多次
+          matches:
+            '@FrameLayout[index=parent.childCount.minus(1)] <n LinearLayout[id="com.zhihu.android:id/rightLayout_inner"] <<n ViewGroup - TextView[text^="来自"]',
+          snapshotUrls: 'https://i.gkd.li/i/15385023',
+        },
+        {
+          key: 10,
+          preKeys: [2],
+          matches:
+            '@TextView[id="com.zhihu.android:id/title"&&text="内容反馈"]',
+          snapshotUrls: 'https://i.gkd.li/i/15385053',
+        },
+        {
+          key: 100,
+          preKeys: [0, 1, 10],
+          matches: '@TextView[text=`内容不感兴趣`||text=`内容质量差`]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/18216487',
+            'https://i.gkd.li/i/18243662',
+          ],
         },
       ],
     },
