@@ -6,6 +6,20 @@ export default defineGkdApp({
   groups: [
     {
       key: 0,
+      name: '全屏广告-开屏广告',
+      desc: '点击[关闭]跳过',
+      fastQuery: true,
+      activityIds: '.app.ui.activity.AdAlphaVideoActivity',
+      rules: [
+        {
+          key: 0,
+          matches: '@TextView[text$=`关闭`]',
+          snapshotUrls: 'https://i.gkd.li/i/18246302',
+        },
+      ],
+    },
+    {
+      key: 1,
       name: '局部广告-回答底部评论顶部-任意广告推荐',
       desc: '直接点击[X]跳过',
       fastQuery: true,
@@ -68,11 +82,16 @@ export default defineGkdApp({
         },
         {
           key: 1,
+          matches: '@ViewGroup[clickable=true] -n TextView[text^=`广告`]',
+          snapshotUrls: 'https://i.gkd.li/i/18246328',
+        },
+        {
+          key: 2,
           matches: '@[id="com.zhihu.android:id/remove"]',
           snapshotUrls: 'https://i.gkd.li/i/18216895',
         },
         {
-          key: 2,
+          key: 3,
           //actionCd: 2000, // 增加冷却，否则易点击多次
           matches:
             '@FrameLayout[index=parent.childCount.minus(1)] <n LinearLayout[id="com.zhihu.android:id/rightLayout_inner"] <<n ViewGroup - TextView[text^="来自"]',
@@ -80,14 +99,14 @@ export default defineGkdApp({
         },
         {
           key: 10,
-          preKeys: [2],
+          preKeys: [3],
           matches:
             '@TextView[id="com.zhihu.android:id/title"&&text="内容反馈"]',
           snapshotUrls: 'https://i.gkd.li/i/15385053',
         },
         {
           key: 100,
-          preKeys: [0, 1, 10],
+          preKeys: [0, 1, 2, 10],
           matches: '@TextView[text=`内容不感兴趣`||text=`内容质量差`]',
           snapshotUrls: [
             'https://i.gkd.li/i/18216487',
