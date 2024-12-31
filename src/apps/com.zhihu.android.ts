@@ -20,6 +20,20 @@ export default defineGkdApp({
     },
     {
       key: 1,
+      name: '局部广告-推荐页',
+      desc: '点击[X]跳过',
+      fastQuery: true,
+      activityIds: '.app.ui.activity.MainActivity',
+      rules: [
+        {
+          key: 0,
+          matches: '@ImageView[id="com.zhihu.android:id/img_close_focus"]',
+          snapshotUrls: 'https://i.gkd.li/i/18279421',
+        },
+      ],
+    },
+    {
+      key: 2,
       name: '局部广告-回答底部评论顶部-任意广告推荐',
       desc: '直接点击[X]跳过',
       fastQuery: true,
@@ -40,7 +54,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 2,
+      key: 3,
       name: '分段广告-推荐页-问题广告卡片',
       desc: '点击角落[X]，再点击[不感兴趣]跳过',
       activityIds: '.app.ui.activity.MainActivity',
@@ -49,8 +63,11 @@ export default defineGkdApp({
         {
           key: 0,
           matches:
-            '@ViewGroup[clickable=true] <n ViewGroup < ViewGroup[index=parent.childCount.minus(1)] -n ViewGroup >n ViewGroup >n TextView[text$=`的广告`]',
-          snapshotUrls: 'https://i.gkd.li/i/18216441',
+            '@ViewGroup[clickable=true] <<n ViewGroup[index=parent.childCount.minus(1)] -n ViewGroup >n ViewGroup >n TextView[text$=`的广告`]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/18216441',
+            'https://i.gkd.li/i/18279463',
+          ],
         },
         {
           key: 1,
@@ -67,11 +84,13 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 3,
+      key: 4,
       name: '分段广告-问题回答列表-卡片广告',
       desc: '普通广告点击角落[X]，再点击[不感兴趣]跳过；特殊卡片则点击三点，再点击[内容反馈]跳过',
-      activityIds:
+      activityIds: [
+        '.ContentActivity',
         '.feature.short_container_feature.ui.ShortContainerHostActivity',
+      ],
       fastQuery: true,
       rules: [
         {
@@ -92,6 +111,11 @@ export default defineGkdApp({
         },
         {
           key: 3,
+          matches: '@ViewGroup[clickable=true] -n TextView[text="广告"]',
+          snapshotUrls: 'https://i.gkd.li/i/18279429',
+        },
+        {
+          key: 9,
           //actionCd: 2000, // 增加冷却，否则易点击多次
           matches:
             '@FrameLayout[index=parent.childCount.minus(1)] <n LinearLayout[id="com.zhihu.android:id/rightLayout_inner"] <<n ViewGroup - TextView[text^="来自"]',
@@ -99,14 +123,14 @@ export default defineGkdApp({
         },
         {
           key: 10,
-          preKeys: [3],
+          preKeys: [9],
           matches:
             '@TextView[id="com.zhihu.android:id/title"&&text="内容反馈"]',
           snapshotUrls: 'https://i.gkd.li/i/15385053',
         },
         {
           key: 100,
-          preKeys: [0, 1, 2, 10],
+          preKeys: [0, 1, 2, 3, 10],
           matches: '@TextView[text=`内容不感兴趣`||text=`内容质量差`]',
           snapshotUrls: [
             'https://i.gkd.li/i/18216487',
@@ -116,7 +140,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 4,
+      key: 5,
       name: '弹窗提示-关闭通知推送',
       desc: '自动点击[X]',
       activityIds: '.MainActivity',
